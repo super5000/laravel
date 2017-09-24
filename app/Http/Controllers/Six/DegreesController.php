@@ -11,6 +11,8 @@ class DegreesController extends Controller
 
   public function create_user()
   {
+    echo phpinfo();
+    die;
     // 生成171号段1亿个用户，每个用户有随机的150个联系人
     $start = 17100000000;
     $end = 17100002000;
@@ -38,7 +40,7 @@ class DegreesController extends Controller
   public function separation()
   {
     list($tmp1, $tmp2) = explode(' ', microtime());
-    $start_time = Redis::set('time',date('Y-m-d H:i:s',time()).substr($tmp1,1,6));
+    $start_time = Redis::set('time',date('Y-m-d H:i:s',time()).substr($tmp1,1,7));
     $start = 17100000000;
     $end = 17100002000;
     // $end = 17199999999;
@@ -82,7 +84,7 @@ class DegreesController extends Controller
     }
     echo "</br>++++++++++++++</br>";
     list($tmp1, $tmp2) = explode(' ', microtime());
-    $end_time = Redis::append('time',"</br>".date('Y-m-d H:i:s',time()).substr($tmp1,1,6));
+    $end_time = Redis::append('time',"</br>".date('Y-m-d H:i:s',time()).substr($tmp1,1,7));
     echo Redis::get('time');
   }
 
@@ -128,7 +130,17 @@ class DegreesController extends Controller
         return 0;
       }
     }else {
-      # code...
+      $friend_user1 = Redis::smembers("user:$user1");
+      for ($k=0; $k < count($friend_user1); $k++) {
+        // $friend_relation[count($friend_relation)-1] = $friend_user1[$k];
+        $result2 = $this->find_friends($friend_user1[$k], $user2);
+        if ($result2) {
+          // return 1;
+          return $result2;
+          break;
+        }
+      }
+      return 0;
     }
 
 
