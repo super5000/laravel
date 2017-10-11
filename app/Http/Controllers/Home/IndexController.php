@@ -9,12 +9,6 @@ use App\Http\Controllers\Controller;
 
 class IndexController extends Controller{
 
-  function my_sort($a,$b)
-  {
-  if ($a==$b) return 0;
-  return ($a<$b)?-1:1;
-  }
-
   public function index(){
     list($tmp1, $tmp2) = explode(' ', microtime());
     echo $start_time = date('Y-m-d H:i:s',time()).substr($tmp1,1,7);
