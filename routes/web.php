@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('six', 'Six\DegreesController@separation');
+Route::get('find_friends', 'Six\DegreesController@find_friends');
 
 Route::get('home', 'Home\IndexController@index')->name('profile');
 Route::get('home/index/index123', 'Home\IndexController@index1');
