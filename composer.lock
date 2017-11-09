@@ -787,6 +787,7 @@
         {
             "version": "v1.1.1",
             "source": {
+            "dist": {
             "name": "psr/log",
             "version": "1.0.2",
             "source": {
