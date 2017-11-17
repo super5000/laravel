@@ -11,8 +11,8 @@ class DegreesController extends Controller
 
   public function create_user()
   {
-    echo phpinfo();
-    die;
+    // echo phpinfo();
+    // die;
     // 生成171号段1亿个用户，每个用户有随机的150个联系人
     $start = 17100000000;
     $end = 17100002000;
