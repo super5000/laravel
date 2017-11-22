@@ -57,7 +57,6 @@ class DegreesController extends Controller
     }
     // 判断user1与user2是否为一度好友
     $result = Redis::sismember("user:$user1",$user2);
-    if ($result) {
       echo "1度"."</br>";
       echo $user1." -> ".$user2;
     }else {
