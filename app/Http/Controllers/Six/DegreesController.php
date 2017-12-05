@@ -53,7 +53,6 @@ class DegreesController extends Controller
     echo "</br>";
     while ($user1 == $user2) {
       echo $user2 = rand($start,$end);
-      echo "</br>";
     }
     // 判断user1与user2是否为一度好友
     $result = Redis::sismember("user:$user1",$user2);
