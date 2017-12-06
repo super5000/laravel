@@ -66,7 +66,6 @@ class DegreesController extends Controller
           echo $friends[$j]." -> ";
         }
         echo $user2;
-      }else {
         echo "not found";
       }
       // // 获取user1所有好友
